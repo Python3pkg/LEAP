@@ -7,7 +7,7 @@ from pysnptools.snpreader.bed import Bed
 #Define analysis data
 bfile = 'dataset1/dataset1'
 phenoFile = bfile+'.phe'
-chromosomes = xrange(1,11)
+chromosomes = range(1,11)
 prevalence = 0.001
 
 #Find individuals to exclude to eliminate relatedness (kinship coeff > 0.05)
@@ -17,8 +17,8 @@ indsToKeep = leapUtils.findRelated(bed, cutoff=0.05)
 #Iterate over each chromosome
 frame_list = []
 for chrom in chromosomes:
-	print
-	print 'Analyzing chromosome', chrom, '...'
+	print()
+	print('Analyzing chromosome', chrom, '...')
 
 	#Create a bed object excluding SNPs from the current chromosome
 	bedExclude = leapUtils.getExcludedChromosome(bfile, chrom)
@@ -44,8 +44,8 @@ for chrom in chromosomes:
 frame = pd.concat(frame_list)
 frame.sort("PValue", inplace=True)
 frame.index = np.arange(len(frame))
-print 'Top 10 most associated SNPs:'
-print frame.head(n=10)
+print('Top 10 most associated SNPs:')
+print(frame.head(n=10))
 
 
 	

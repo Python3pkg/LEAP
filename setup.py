@@ -16,11 +16,11 @@ from distutils.command.clean import clean as Clean
 
 try: import numpy	
 except Exception:
-	print "numpy needed for installation, please install numpy first"
+	print("numpy needed for installation, please install numpy first")
 	sys.exit()
 try: import scipy
 except Exception:
-	print "scipy needed for installation, please install numpy first"
+	print("scipy needed for installation, please install numpy first")
 	sys.exit()
 
 def readme():
